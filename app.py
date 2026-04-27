@@ -13,6 +13,7 @@ def login():
         if username == "admin" and password == "1234":
             st.session_state.authenticated = True
             st.success("Login successful")
+            st.rerun()
         else:
             st.error("Invalid credentials")
 
