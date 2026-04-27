@@ -66,6 +66,10 @@ div.stButton > button:active {
     border-radius: 10px !important;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
 }
+.stTextInput > div > div > input:focus {
+    border: 2px solid #ff4d4d !important;
+    box-shadow: 0 0 8px rgba(255, 77, 77, 0.6) !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
