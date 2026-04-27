@@ -56,19 +56,15 @@ div.stButton > button:active {
     font-size: 20px;
     margin-bottom: 10px;
 }
-/* Improve input field visibility */
-div[data-baseweb="input"] {
-    background-color: white !important;
-    border-radius: 10px !important;
-    border: 2px solid #4da6ff !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
-}
-
-div[data-baseweb="input"] input {
+/* FORCE input field visibility */
+.stTextInput > div > div > input {
     background-color: white !important;
     color: black !important;
     font-size: 18px !important;
-    padding: 10px !important;
+    padding: 12px !important;
+    border: 2px solid #4da6ff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
 }
 </style>
 """, unsafe_allow_html=True)
