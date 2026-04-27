@@ -1,0 +1,88 @@
+import streamlit as st
+from pyngrok import ngrok
+
+# ---- START NGROK ----
+try:
+    public_url = ngrok.connect(8501)
+    print("🚀 Your app is live at:", public_url)
+except:
+    print("⚠️ Ngrok failed to start")
+
+# ---- PAGE CONFIG ----
+st.set_page_config(page_title="Insurance Checklist Assistant", layout="centered")
+
+# ---- CUSTOM CSS ----
+st.markdown("""
+<style>
+
+/* Hide Streamlit header */
+header {visibility: hidden;}
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+
+/* Background */
+.stApp {
+    background: linear-gradient(to right, #e6f0ff, #f2f7ff);
+}
+
+/* Button */
+div.stButton > button {
+    background: linear-gradient(to bottom, #ff4d4d, #cc0000);
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0 5px #990000;
+}
+
+div.stButton > button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px #660000;
+}
+
+/* Checklist */
+.checklist {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ---- TITLE ----
+st.markdown("## 🔎 Enter Insurance Name")
+
+# ---- INPUT ----
+insurance = st.text_input("")
+
+# ---- LOAD DATA ----
+with open("DATA.txt", "r") as file:
+    data = file.read()
+
+# ---- LOGIC ----
+def get_section(insurance_name, text):
+    insurance_name = insurance_name.lower()
+
+    if "aetna better health" in insurance_name:
+        start = text.lower().find("aetna better health of il")
+        end = text.lower().find("aetna medicare")
+        return text[start:end]
+
+    elif "aetna medicare" in insurance_name:
+        start = text.lower().find("aetna medicare")
+        return text[start:]
+
+    else:
+        return None
+
+# ---- BUTTON ----
+if st.button("📌 Generate Checklist"):
+    section = get_section(insurance, data)
+
+    if section:
+        st.markdown("### 📄 Checklist")
+
+        for line in section.split("\n"):
+            if line.strip() and "aetna" not in line.lower() and "-----" not in line:
+                st.markdown(f"<div class='checklist'>✅ {line.strip()}</div>", unsafe_allow_html=True)
+    else:
+        st.error("Insurance not found")
