@@ -1,12 +1,4 @@
 import streamlit as st
-from pyngrok import ngrok
-
-# ---- START NGROK ----
-try:
-    public_url = ngrok.connect(8501)
-    print("🚀 Your app is live at:", public_url)
-except:
-    print("⚠️ Ngrok failed to start")
 
 # ---- PAGE CONFIG ----
 st.set_page_config(page_title="Insurance Checklist Assistant", layout="centered")
