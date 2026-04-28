@@ -117,11 +117,14 @@ if st.button("📌 Generate Checklist"):
         for line in section.split("\n"):
             if line.strip() and "aetna" not in line.lower() and "-----" not in line:
                 st.markdown(f"<div class='checklist'>✅ {line.strip()}</div>", unsafe_allow_html=True)
-    if hcpcs:
-        code = hcpcs.strip().upper()
+        if hcpcs:
+            code = hcpcs.strip().upper()
 
-        if code in hcpcs_images:
-            st.markdown("### 🩺 Device Preview")
-            st.image(hcpcs_images[code], use_column_width=True)            
+            image_path = f"images/{code}.jpg"
+
+            import os
+            if os.path.exists(image_path):
+                st.markdown("### 🩺 Device Preview")
+                st.image(image_path, use_column_width=True)            
     else:
         st.error("Insurance not found")
