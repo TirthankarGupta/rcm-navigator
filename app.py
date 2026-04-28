@@ -78,6 +78,7 @@ st.markdown("## 🔎 Enter Insurance Name")
 
 # ---- INPUT ----
 insurance = st.text_input("")
+hcpcs = st.text_input("Enter HCPCS Code (Optional)")
 
 # ---- LOAD DATA ----
 with open("DATA.txt", "r") as file:
