@@ -86,9 +86,9 @@ with open("DATA.txt", "r") as file:
 
 # ---- HCPCS IMAGE MAP ----
 hcpcs_images = {
-    "L0174": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Neck_brace.jpg",
-    "L0999": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Neck_brace.jpg",
-    "E0143": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Walker.jpg"
+    "L0174": "https://cdn.shopify.com/s/files/1/0080/8372/products/neckbrace.jpg",
+    "L0999": "https://cdn.shopify.com/s/files/1/0080/8372/products/neckbrace.jpg",
+    "E0143": "https://cdn.shopify.com/s/files/1/0080/8372/products/walker.jpg"
 }
 
 # ---- LOGIC ----
