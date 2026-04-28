@@ -122,6 +122,6 @@ if st.button("📌 Generate Checklist"):
 
         if code in hcpcs_images:
             st.markdown("### 🩺 Device Preview")
-            st.image(hcpcs_images[code], caption=f"Device for {code}")            
+            st.image(hcpcs_images[code], use_column_width=True)            
     else:
         st.error("Insurance not found")
