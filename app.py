@@ -84,6 +84,13 @@ hcpcs = st.text_input("Enter HCPCS Code (Optional)")
 with open("DATA.txt", "r") as file:
     data = file.read()
 
+# ---- HCPCS IMAGE MAP ----
+hcpcs_images = {
+    "L0174": "https://via.placeholder.com/200?text=Cervical+Collar",
+    "L0999": "https://via.placeholder.com/200?text=Cervical+Collar",
+    "E0143": "https://via.placeholder.com/200?text=Walker"
+}
+
 # ---- LOGIC ----
 def get_section(insurance_name, text):
     insurance_name = insurance_name.lower()
