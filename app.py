@@ -136,7 +136,7 @@ if st.button("📌 Generate Checklist"):
             import os
             if os.path.exists(image_path):
                 with col2:
-                    st.markdown("### 🩺 Device")
+                    st.markdown(f"### 🩺 Device ({code})")
                     st.image(image_path, use_column_width=True)            
     else:
         st.error("Insurance not found")
