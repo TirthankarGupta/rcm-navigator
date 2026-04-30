@@ -111,12 +111,16 @@ def get_section(insurance_name, text):
 if st.button("📌 Generate Checklist"):
     section = get_section(insurance, data)
 
-    if section:
-        st.markdown("### 📄 Checklist")
+    col1, col2 = st.columns([2, 1])
 
-        for line in section.split("\n"):
-            if line.strip() and "aetna" not in line.lower() and "-----" not in line:
-                st.markdown(f"<div class='checklist'>✅ {line.strip()}</div>", unsafe_allow_html=True)
+    if section:
+        with col1:
+            st.markdown("### 📄 Checklist")
+
+            for line in section.split("\n"):
+                if line.strip() and "aetna" not in line.lower() and "-----" not in line:
+                    st.markdown(f"<div class='checklist'>✅ {line.strip()}</div>", unsafe_allow_html=True)
+            
         if hcpcs:
             code = hcpcs.strip().upper()
 
@@ -124,7 +128,8 @@ if st.button("📌 Generate Checklist"):
 
             import os
             if os.path.exists(image_path):
-                st.markdown("### 🩺 Device Preview")
-                st.image(image_path, use_column_width=True)            
+                with col2:
+                    st.markdown("### 🩺 Device")
+                    st.image(image_path, use_column_width=True)            
     else:
         st.error("Insurance not found")
