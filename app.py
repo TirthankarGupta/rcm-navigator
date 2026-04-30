@@ -92,20 +92,27 @@ hcpcs_images = {
 }
 
 # ---- LOGIC ----
-def get_section(insurance_name, text):
-    insurance_name = insurance_name.lower()
+def get_section(insurance, data):
+    insurance = insurance.strip().upper()
 
-    if "aetna better health" in insurance_name:
-        start = text.lower().find("aetna better health of il")
-        end = text.lower().find("aetna medicare")
-        return text[start:end]
+    sections = data.split("---")
 
-    elif "aetna medicare" in insurance_name:
-        start = text.lower().find("aetna medicare")
-        return text[start:]
+    for section in sections:
+        lines = section.strip().split("\n")
 
-    else:
-        return None
+        if not lines:
+            continue
+
+        header = lines[0].strip()
+
+        # Extract name inside [ ]
+        if header.startswith("[") and header.endswith("]"):
+            section_name = header[1:-1].strip().upper()
+
+            if section_name == insurance:
+                return "\n".join(lines[1:])  # return only that section
+
+    return None
 
 # ---- BUTTON ----
 if st.button("📌 Generate Checklist"):
