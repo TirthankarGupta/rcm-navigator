@@ -1,27 +1,32 @@
-Aetna Better Health of IL
-Match patient name.
-Check Referring physician info - 'Should be filled and green ticked'
-Modifiers only 'LT|RT'.
-No KX.
-For Abdominal Binders use 'CG'.
-For Walker/Wheelchair/Crutches/HO-Prefab ONLY 'NU'.
-Box 24 [NPI] = Box 33a = 1174573307.
-Box 31 [Signature of Physician or Supplier] CPO Services Inc.
-Box 32 [Service Facility Information] KEEP IT 'BLANK'.
-Submit through Waystar.
-------------------------------------------------------------------------------
+[AETNA MEDICARE]
 
-Aetna Medicare
 Ensure POS us either 22 [Out Patient] or 23 [ER Visit].
+Bill to Insurance only if within 48 hours of delivery.
 Match patient name.
 Check Referring physician info - 'Should be filled and green ticked'.
-Bill to Insurance only if within 48 hours of delivery.
 Modifiers only 'LT|RT & KX'.
 For Abdominal Binders use 'CG'.
+For CO-prefab use ONLY 'NU'.
 For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'.
 Box 24 [NPI] = Box 33a = 1174573307.
 Box 31 [Signature of Physician or Supplier] CPO Services Inc.
 Box 32 [Service Facility Information] KEEP IT 'BLANK'.
 Submit through Waystar.
 
+---
 
+[AETNA BETTER HEALTH]
+
+Match patient name.
+Check Referring physician info - 'Should be filled and green ticked'.
+Modifiers only 'LT|RT'.
+No KX.
+For Abdominal Binders use 'CG'.
+For CO-prefab use ONLY 'NU'.
+For Walker/Wheelchair/Crutches/HO-Prefab ONLY 'NU'.
+Box 24 [NPI] = Box 33a = 1174573307.
+Box 31 [Signature of Physician or Supplier] CPO Services Inc.
+Box 32 [Service Facility Information] KEEP IT 'BLANK'.
+Submit through Waystar.
+
+---
