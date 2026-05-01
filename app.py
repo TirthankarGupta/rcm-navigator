@@ -13,6 +13,7 @@ if not st.session_state.authenticated:
         if username == st.secrets["username"] and password == st.secrets["password"]:
             st.session_state.authenticated = True
             st.success("Login successful")
+            st.rerun()
         else:
             st.error("Invalid credentials")
 
