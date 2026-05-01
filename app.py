@@ -3,8 +3,8 @@ import streamlit as st
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
 
-def login():
-    st.markdown("## 🔐 Login Required")
+if not st.session_state.authenticated:
+    st.title("🔐 Login")
 
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
@@ -13,13 +13,11 @@ def login():
         if username == st.secrets["username"] and password == st.secrets["password"]:
             st.session_state.authenticated = True
             st.success("Login successful")
-            st.rerun()
         else:
             st.error("Invalid credentials")
 
-if not st.session_state.authenticated:
-    login()
-    st.stop()
+    st.stop()   # ⛔ VERY IMPORTANT
+    
 # ---- PAGE CONFIG ----
 st.set_page_config(page_title="Insurance Checklist Assistant", layout="centered")
 
