@@ -10,7 +10,7 @@ def login():
     password = st.text_input("Password", type="password")
 
     if st.button("Login"):
-        if username == "admin" and password == "Admin@2026":
+        if username == st.secrets["username"] and password == st.secrets["password"]:
             st.session_state.authenticated = True
             st.success("Login successful")
             st.rerun()
