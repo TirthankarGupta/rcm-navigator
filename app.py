@@ -135,6 +135,9 @@ if st.button("📌 Generate Checklist"):
             if os.path.exists(image_path):
                 with col2:
                     st.markdown(f"### 🩺 Device ({code})")
-                    st.image(image_path, use_column_width=True)            
+                    st.image(image_path, use_column_width=True)
+
+                    st.markdown("### 🦴 Human Skeleton")
+                    st.image("images/skeleton.jpg", use_column_width=True)
     else:
         st.error("Insurance not found")
