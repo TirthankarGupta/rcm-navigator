@@ -1,13 +1,14 @@
 [AETNA MEDICARE]
 
-Ensure POS us either 22 [Out Patient] or 23 [ER Visit].
+Ensure POS use either 22 [Out Patient] or 23 [ER Visit].
 Bill to Insurance only if within 48 hours of delivery.
 Match patient name.
 Check Referring physician info - 'Should be filled and green ticked'.
 Modifiers only 'LT|RT & KX'.
 For Abdominal Binders use 'CG'.
-For CO-prefab use ONLY 'NU'.
+For CO-prefab use ONLY 'KX'.
 For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'.
+Split as necessary
 Box 24 [NPI] = Box 33a = 1174573307.
 Box 31 [Signature of Physician or Supplier] CPO Services Inc.
 Box 32 [Service Facility Information] KEEP IT 'BLANK'.
@@ -24,6 +25,20 @@ No KX.
 For Abdominal Binders use 'CG'.
 For CO-prefab use ONLY 'NU'.
 For Walker/Wheelchair/Crutches/HO-Prefab ONLY 'NU'.
+Split as necessary
+Box 24 [NPI] = Box 33a = 1174573307.
+Box 31 [Signature of Physician or Supplier] CPO Services Inc.
+Box 32 [Service Facility Information] KEEP IT 'BLANK'.
+Submit through Waystar.
+
+---
+
+[IDPA]
+
+Match patient name.
+Check Referring physician info - 'Should be filled and green ticked'.
+Modifier will be 'NU' for all cases.
+No splitting.
 Box 24 [NPI] = Box 33a = 1174573307.
 Box 31 [Signature of Physician or Supplier] CPO Services Inc.
 Box 32 [Service Facility Information] KEEP IT 'BLANK'.
