@@ -121,7 +121,16 @@ if st.button("📌 Generate Checklist"):
 
     if section:
         with col1:
-            st.markdown("### 📄 Checklist")
+            st.markdown("### ✅ Pre-Submission Checks")
+
+            hcpcs_match = st.checkbox("HCPCS matches Delivery Receipt")
+            dx_match = st.checkbox("Dx code matches")
+            eligibility_ok = st.checkbox("Eligibility verified")
+            signature_present = st.checkbox("Signature present on Delivery Receipt")
+            physician_info = st.checkbox("Referring physician info present")
+            charges_valid = st.checkbox("Charges and Allowable not zero")
+
+            st.markdown("### 📋 Checklist")
 
             for line in section.split("\n"):
                 if line.strip() and "aetna" not in line.lower() and "-----" not in line:
