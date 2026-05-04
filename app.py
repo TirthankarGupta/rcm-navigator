@@ -120,82 +120,82 @@ if st.button("📌 Generate Checklist"):
     col1, col2 = st.columns([2, 1])
 
     if section:
-    with col1:
+        with col1:
 
-        # ---- CHECKBOXES ----
-        st.markdown("### ✅ Pre-Submission Checks")
+            # ---- CHECKBOXES ----
+            st.markdown("### ✅ Pre-Submission Checks")
 
-        hcpcs_match = st.checkbox("HCPCS matches Delivery Receipt")
-        dx_match = st.checkbox("Dx code matches")
-        eligibility_ok = st.checkbox("Eligibility verified")
-        signature_present = st.checkbox("Signature present on Delivery Receipt")
-        physician_info = st.checkbox("Referring physician info present")
-        charges_valid = st.checkbox("Charges and Allowable not zero")
-
-
-        # ---- DECISION LOGIC ----
-        failures = []
-
-        if not hcpcs_match:
-            failures.append("HCPCS mismatch")
-
-        if not dx_match:
-            failures.append("Dx code mismatch")
-
-        if not eligibility_ok:
-            failures.append("Eligibility not verified")
-
-        if not signature_present:
-            failures.append("Missing signature")
-
-        if not physician_info:
-            failures.append("Missing referring physician info")
-
-        if not charges_valid:
-            failures.append("Invalid charges/allowable")
+            hcpcs_match = st.checkbox("HCPCS matches Delivery Receipt")
+            dx_match = st.checkbox("Dx code matches")
+            eligibility_ok = st.checkbox("Eligibility verified")
+            signature_present = st.checkbox("Signature present on Delivery Receipt")
+            physician_info = st.checkbox("Referring physician info present")
+            charges_valid = st.checkbox("Charges and Allowable not zero")
 
 
-        # ---- DECISION OUTPUT ----
-        st.markdown("### 🧠 Decision")
+            # ---- DECISION LOGIC ----
+            failures = []
 
-        if len(failures) == 0:
-            st.success("✔ SAFE TO SUBMIT")
-        elif len(failures) <= 2:
-            st.warning("⚠ NEEDS REVIEW")
-        else:
-            st.error("❌ HIGH RISK")
+            if not hcpcs_match:
+                failures.append("HCPCS mismatch")
 
+            if not dx_match:
+                failures.append("Dx code mismatch")
 
-        # ---- SHOW REASONS ----
-        if failures:
-            st.markdown("**Issues found:**")
-            for f in failures:
-                st.write(f"- {f}")
+            if not eligibility_ok:
+                failures.append("Eligibility not verified")
 
+            if not signature_present:
+                failures.append("Missing signature")
 
-        # ---- CHECKLIST ----
-        st.markdown("### 📋 Checklist")
+            if not physician_info:
+                failures.append("Missing referring physician info")
 
-        for line in section.split("\n"):
-            if line.strip() and "aetna" not in line.lower() and "-----" not in line:
-                st.markdown(
-                    f"<div class='checklist'>✅ {line.strip()}</div>",
-                    unsafe_allow_html=True
-                )
+            if not charges_valid:
+                failures.append("Invalid charges/allowable")
 
 
-    # ---- DEVICE IMAGE ----
-    if hcpcs:
-        code = hcpcs.strip().upper()
-        image_path = f"images/{code}.jpg"
+            # ---- DECISION OUTPUT ----
+            st.markdown("### 🧠 Decision")
 
-        import os
-        if os.path.exists(image_path):
-            with col2:
-                st.markdown(f"### 🩺 Device ({code})")
-                st.image(image_path, use_column_width=True)
+            if len(failures) == 0:
+                st.success("✔ SAFE TO SUBMIT")
+            elif len(failures) <= 2:
+                st.warning("⚠ NEEDS REVIEW")
+            else:
+                st.error("❌ HIGH RISK")
 
-                st.markdown("### 🦴 Human Skeleton")
-                st.image("images/skeleton.jpg", use_column_width=True)
-else:
-    st.error("Insurance not found")
+
+            # ---- SHOW REASONS ----
+            if failures:
+                st.markdown("**Issues found:**")
+                for f in failures:
+                    st.write(f"- {f}")
+
+
+            # ---- CHECKLIST ----
+            st.markdown("### 📋 Checklist")
+
+            for line in section.split("\n"):
+                if line.strip() and "aetna" not in line.lower() and "-----" not in line:
+                    st.markdown(
+                        f"<div class='checklist'>✅ {line.strip()}</div>",
+                        unsafe_allow_html=True
+                    )
+
+        # ---- DEVICE IMAGE ----
+        if hcpcs:
+            code = hcpcs.strip().upper()
+            image_path = f"images/{code}.jpg"
+
+            import os
+            if os.path.exists(image_path):
+                with col2:
+                    st.markdown(f"### 🩺 Device ({code})")
+                    st.image(image_path, use_column_width=True)
+
+                    st.markdown("### 🦴 Human Skeleton")
+                    st.image("images/skeleton.jpg", use_column_width=True)
+
+    else:
+        st.error("Insurance not found")
