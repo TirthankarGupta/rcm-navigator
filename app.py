@@ -120,7 +120,7 @@ if st.button("📌 Generate Checklist"):
     col1, col2 = st.columns([2, 1])
 
     if section:
-    with col1:
+        with col1:
 
         # ---- CHECKBOXES ----
         st.markdown("### ✅ Pre-Submission Checks")
