@@ -160,6 +160,7 @@ if st.session_state.show_result:
 
 
             # ---- DECISION OUTPUT ----
+            st.markdown("---")
             st.markdown("### 🧠 Decision")
 
             if len(failures) == 0:
@@ -178,6 +179,7 @@ if st.session_state.show_result:
 
 
             # ---- CHECKLIST ----
+            st.markdown("---")
             st.markdown("### 📋 Checklist")
 
             for line in section.split("\n"):
