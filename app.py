@@ -120,6 +120,7 @@ if st.button("📌 Generate Checklist"):
     st.session_state.show_result = True
 
 if st.session_state.show_result:
+    section = get_section(insurance, data)
     col1, col2 = st.columns([2, 1])
 
     if section:
