@@ -78,6 +78,8 @@ st.markdown("## 🔎 Enter Insurance Name")
 # ---- INPUT ----
 insurance = st.text_input("")
 hcpcs = st.text_input("Enter HCPCS Code (Optional)")
+if "show_result" not in st.session_state:
+    st.session_state.show_result = False
 
 # ---- LOAD DATA ----
 with open("DATA.txt", "r") as file:
@@ -115,8 +117,9 @@ def get_section(insurance, data):
 
 # ---- BUTTON ----
 if st.button("📌 Generate Checklist"):
-    section = get_section(insurance, data)
+    st.session_state.show_result = True
 
+if st.session_state.show_result:
     col1, col2 = st.columns([2, 1])
 
     if section:
