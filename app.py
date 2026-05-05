@@ -199,7 +199,6 @@ if st.session_state.show_result:
             else:
                 st.error("❌ HIGH RISK")
 
-
             # ---- FINAL RECOMMENDATION ----
             if len(failures) == 0:
                 st.success("🚀 READY FOR SUBMISSION")
@@ -208,6 +207,25 @@ if st.session_state.show_result:
             else:
                 st.error("⛔ DO NOT SUBMIT – HIGH RISK")
     
+            # ---- DENIAL RISK INSIGHT ----
+            if failures:
+                st.markdown("### ⚠️ Likely Denial Reason")
+
+                if "Missing signature" in failures and "Eligibility not verified" in failures:
+                    st.warning("High denial risk due to missing signature and eligibility not verified")
+            
+                elif "Missing signature" in failures:
+                    st.warning("Claim may be denied due to missing patient/representative signature")
+            
+                elif "Eligibility not verified" in failures:
+                    st.warning("Claim may be denied due to eligibility not verified")
+            
+                elif "HCPCS mismatch" in failures:
+                    st.warning("Incorrect HCPCS may lead to denial or rework")
+            
+                elif "Invalid charges/allowable" in failures:
+                    st.warning("Incorrect charge/allowable may result in rejection or underpayment")
+            
             # ---- SHOW REASONS ----
             if failures:
                 st.markdown("**Issues found:**")
