@@ -189,7 +189,27 @@ if st.session_state.show_result:
                 st.markdown("**Issues found:**")
                 for f in failures:
                     st.write(f"- {f}")
+                if failures:
+                
+                st.markdown("### 🔧 Recommended Actions")
 
+                if "HCPCS mismatch" in failures:
+                    st.write("- Verify HCPCS against Delivery Receipt and Charge Entry")
+
+                if "Dx code mismatch" in failures:
+                    st.write("- Cross-check Dx codes for accuracy and laterality")
+            
+                if "Eligibility not verified" in failures:
+                    st.write("- Run eligibility check before submission")
+            
+                if "Missing signature" in failures:
+                    st.write("- Obtain valid patient/representative signature")
+            
+                if "Missing referring physician info" in failures:
+                    st.write("- Update referring physician details before billing")
+            
+                if "Invalid charges/allowable" in failures:
+                    st.write("- Validate charge and allowable amounts")
 
             # ---- CHECKLIST ----
             st.markdown("---")
