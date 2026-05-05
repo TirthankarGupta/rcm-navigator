@@ -189,6 +189,14 @@ if st.session_state.show_result:
                 st.error("❌ HIGH RISK")
 
 
+            # ---- FINAL RECOMMENDATION ----
+            if len(failures) == 0:
+                st.success("🚀 READY FOR SUBMISSION")
+            elif len(failures) <= 2:
+                st.warning("🛠 FIX ISSUES BEFORE SUBMISSION")
+            else:
+                st.error("⛔ DO NOT SUBMIT – HIGH RISK")
+    
             # ---- SHOW REASONS ----
             if failures:
                 st.markdown("**Issues found:**")
