@@ -206,10 +206,13 @@ if st.session_state.show_result:
         if hcpcs:
             code = hcpcs.strip().upper()
             image_path = f"images/{code}.jpg"
-
+            
             import os
             if os.path.exists(image_path):
                 with col2:
+                    if code in hcpcs_data:
+                        st.markdown(f"### 🦴 Affected Area: {hcpcs_data[code]['body']}")
+                        
                     st.markdown(f"### 🩺 Device ({code})")
                     st.image(image_path, use_column_width=True)
 
