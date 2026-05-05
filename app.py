@@ -86,10 +86,23 @@ with open("DATA.txt", "r") as file:
     data = file.read()
 
 # ---- HCPCS IMAGE MAP ----
-hcpcs_images = {
-    "L0174": "https://cdn.shopify.com/s/files/1/0080/8372/products/neckbrace.jpg",
-    "L0999": "https://cdn.shopify.com/s/files/1/0080/8372/products/neckbrace.jpg",
-    "E0143": "https://cdn.shopify.com/s/files/1/0080/8372/products/walker.jpg"
+hcpcs_data = {
+    "E0114": {"body": "Mobility / Crutches"},
+    "E0143": {"body": "Lower Extremity / Walker"},
+    "E0149": {"body": "Mobility / Heavy Duty Walker"},
+    "L0172": {"body": "Neck (Cervical Spine)"},
+    "L0174": {"body": "Neck (Cervical Spine)"},
+    "L0621": {"body": "Lower Back (Lumbar Spine)"},
+    "L1620": {"body": "Hip"},
+    "L1820": {"body": "Knee"},
+    "L1830": {"body": "Knee"},
+    "L1833": {"body": "Knee"},
+    "L1902": {"body": "Ankle"},
+    "L3260": {"body": "Foot"},
+    "L3670": {"body": "Shoulder / Arm"},
+    "L3809": {"body": "Wrist / Hand / Finger"},
+    "L3908": {"body": "Wrist / Hand"},
+    "L4361": {"body": "Foot / Ankle"},
 }
 
 # ---- LOGIC ----
