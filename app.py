@@ -189,8 +189,7 @@ if st.session_state.show_result:
                 st.markdown("**Issues found:**")
                 for f in failures:
                     st.write(f"- {f}")
-                if failures:
-                
+                                
                 st.markdown("### 🔧 Recommended Actions")
 
                 if "HCPCS mismatch" in failures:
