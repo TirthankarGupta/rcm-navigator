@@ -174,6 +174,11 @@ if st.session_state.show_result:
 
             # ---- DECISION OUTPUT ----
             st.markdown("---")
+            total_checks = 6
+            failed_checks = len(failures)
+            risk_score = int((failed_checks / total_checks) * 100)
+
+            st.markdown(f"### 📊 Risk Score: {risk_score}/100")
             st.markdown("### 🧠 Decision")
 
             if len(failures) == 0:
