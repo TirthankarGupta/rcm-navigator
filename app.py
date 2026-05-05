@@ -78,6 +78,14 @@ st.markdown("## 🔎 Enter Insurance Name")
 # ---- INPUT ----
 insurance = st.text_input("")
 hcpcs = st.text_input("Enter HCPCS Code (Optional)")
+payer = insurance.lower()
+
+payer_type = "generic"
+
+if "medicare" in payer:
+    payer_type = "medicare"
+elif "medicaid" in payer or "better health" in payer:
+    payer_type = "medicaid"
 if "show_result" not in st.session_state:
     st.session_state.show_result = False
 
@@ -152,6 +160,9 @@ if st.session_state.show_result:
 
             # ---- DECISION LOGIC ----
             failures = []
+
+            if payer_type == "medicare" and not eligibility_ok:
+                failures.append("Medicare eligibility critical check failed")
 
             if not hcpcs_match:
                 failures.append("HCPCS mismatch")
