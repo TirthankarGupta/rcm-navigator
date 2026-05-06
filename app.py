@@ -78,6 +78,7 @@ st.markdown("## 🔎 Enter Insurance Name")
 # ---- INPUT ----
 insurance = st.text_input("")
 hcpcs = st.text_input("Enter HCPCS Code (Optional)")
+claim_id = st.text_input("Enter Claim Number (Optional)")
 payer = insurance.lower()
 
 payer_type = "generic"
