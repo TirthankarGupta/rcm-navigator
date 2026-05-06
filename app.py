@@ -90,6 +90,9 @@ elif "medicaid" in payer or "better health" in payer:
 if "show_result" not in st.session_state:
     st.session_state.show_result = False
 
+if "claims" not in st.session_state:
+    st.session_state.claims = []
+
 # ---- LOAD DATA ----
 with open("DATA.txt", "r") as file:
     data = file.read()
