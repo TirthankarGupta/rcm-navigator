@@ -297,14 +297,13 @@ if st.session_state.show_result:
 
     else:
         st.error("Insurance not found")
-
-        # ---- CLAIM SUMMARY ----
-        if st.session_state.claims:
-        
-            st.markdown("---")
-            st.markdown("### 📊 Submitted Claims Summary")
-        
-            st.write(f"Total Claims Submitted: {len(st.session_state.claims)}")
-        
-            for c in st.session_state.claims:
-                st.write(f"- Claim #{c['claim_id']} | Risk Score: {c['risk']}/100")
+    # ---- CLAIM SUMMARY ----
+            if st.session_state.claims:
+            
+                st.markdown("---")
+                st.markdown("### 📊 Submitted Claims Summary")
+            
+                st.write(f"Total Claims Submitted: {len(st.session_state.claims)}")
+            
+                for c in st.session_state.claims:
+                    st.write(f"- Claim #{c['claim_id']} | Risk Score: {c['risk']}/100")
