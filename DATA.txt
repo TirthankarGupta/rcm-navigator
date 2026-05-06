@@ -1,7 +1,45 @@
 [AETNA MEDICARE]
 
-Ensure POS use either 22 [Out Patient] or 23 [ER Visit].
+Aetna is out-of-network for CPO.
+Ensure POS is either 22 [Out Patient] or 23 [ER Visit].
 Bill to Insurance only if within 48 hours of delivery.
+Match patient name.
+Check Referring physician info - 'Should be filled and green ticked'.
+Modifiers only 'LT|RT & KX'.
+For Abdominal Binders use 'CG'.
+For CO-prefab use ONLY 'KX'.
+For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'.
+Split as necessary.
+Box 24 [NPI] = Box 33a = 1174573307.
+Box 31 [Signature of Physician or Supplier] CPO Services Inc.
+Box 32 [Service Facility Information] KEEP IT 'BLANK'.
+Submit through Waystar.
+
+---
+
+[CGS Medicare]
+
+Bill to Insurance only if within 48 hours of delivery.
+Match patient name.
+Check Referring physician info - 'Should be filled and green ticked'.
+Modifiers only 'LT|RT & KX'.
+For Abdominal Binders use 'CG'.
+For CO-prefab use ONLY 'KX'.
+For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'.
+Split as necessary.
+Box 31 = Box 33.
+Do not bill for 'E0190' & 'L3260' - They are non-covered.
+Ensure narrative for 'L0999'.
+Change NPI as per location.
+Box 32 [Service Facility Information] KEEP IT 'BLANK'.
+Submit through Waystar.
+
+---
+
+[AETNA (14079)]
+
+Aetna is out-of-network for CPO.
+Ensure POS is either 22 [Out Patient] or 23 [ER Visit].
 Match patient name.
 Check Referring physician info - 'Should be filled and green ticked'.
 Modifiers only 'LT|RT & KX'.
@@ -28,6 +66,22 @@ For Walker/Wheelchair/Crutches/HO-Prefab ONLY 'NU'.
 Split as necessary
 Box 24 [NPI] = Box 33a = 1174573307.
 Box 31 [Signature of Physician or Supplier] CPO Services Inc.
+Box 32 [Service Facility Information] KEEP IT 'BLANK'.
+Submit through Waystar.
+
+---
+
+[BCBS]
+
+Match patient name.
+Check Referring physician info - 'Should be filled and green ticked'.
+Modifiers only 'LT|RT & KX'.
+For Abdominal Binders use 'CG'.
+For CO-prefab use ONLY 'KX'.
+For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'.
+For 'A4565' use NU & KX as modifiers.
+Split as necessary.
+Box 31 = Box 33.
 Box 32 [Service Facility Information] KEEP IT 'BLANK'.
 Submit through Waystar.
 
