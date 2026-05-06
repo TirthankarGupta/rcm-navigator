@@ -210,6 +210,17 @@ if st.session_state.show_result:
                 st.warning("🛠 FIX ISSUES BEFORE SUBMISSION")
             else:
                 st.error("⛔ DO NOT SUBMIT – HIGH RISK")
+
+            if st.button("📌 Mark as Submitted"):
+                
+                if claim_id:
+                    st.session_state.claims.append({
+                        "claim_id": claim_id,
+                        "risk": risk_score,
+                        "status": "Submitted"
+                    })
+            
+                    st.success("Claim recorded successfully")
     
             # ---- DENIAL RISK INSIGHT ----
             if failures:
