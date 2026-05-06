@@ -301,10 +301,10 @@ if st.session_state.show_result:
     # ---- CLAIM SUMMARY ----
     if st.session_state.claims:
             
-       st.markdown("---")
-       st.markdown("### 📊 Submitted Claims Summary")
+       st.sidebar.markdown("---")
+       st.sidebar.markdown("### 📊 Submitted Claims Summary")
             
-       st.write(f"Total Claims Submitted: {len(st.session_state.claims)}")
+       st.sidebar.write(f"Total Claims Submitted: {len(st.session_state.claims)}")
             
        for c in st.session_state.claims:
-           st.write(f"- Claim #{c['claim_id']} | Risk Score: {c['risk']}/100")
+           st.sidebar.write(f"- Claim #{c['claim_id']} | Risk Score: {c['risk']}/100")
