@@ -301,6 +301,8 @@ if st.session_state.show_result:
         
     # ---- CLAIM SUMMARY ----
     if st.session_state.claims:
+
+       df_claims = pd.DataFrame(st.session_state.claims)
             
        st.sidebar.markdown("---")
        st.sidebar.markdown("### 📊 Submitted Claims Summary")
@@ -309,3 +311,12 @@ if st.session_state.show_result:
             
        for c in st.session_state.claims:
            st.sidebar.write(f"- Claim #{c['claim_id']} | Risk Score: {c['risk']}/100")
+
+        csv = df_claims.to_csv(index=False).encode('utf-8')
+        
+        st.sidebar.download_button(
+            label="📥 Export Claims to CSV",
+            data=csv,
+            file_name="submitted_claims.csv",
+            mime="text/csv"
+        )
