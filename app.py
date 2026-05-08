@@ -419,6 +419,11 @@ if st.session_state.claims:
         f"Total Claims Submitted: {len(st.session_state.claims)}"
     )
 
+    avg_risk = df_claims["risk"].mean()
+    st.sidebar.write(
+        f"Average Risk Score: {avg_risk:.1f}/100"
+    )
+
     for c in st.session_state.claims:
 
         st.sidebar.write(
