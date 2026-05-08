@@ -426,9 +426,18 @@ if st.session_state.claims:
 
     for c in st.session_state.claims:
 
-        st.sidebar.write(
-            f"- Claim #{c['claim_id']} | Risk Score: {c['risk']}/100"
-        )
+        if c["risk"] <= 15:
+        icon = "🟢"
+
+    elif c["risk"] <= 40:
+        icon = "🟡"
+
+    else:
+        icon = "🔴"
+
+    st.sidebar.write(
+        f"{icon} Claim #{c['claim_id']} | Risk: {c['risk']}/100"
+    )
 
     csv = df_claims.to_csv(
         index=False
