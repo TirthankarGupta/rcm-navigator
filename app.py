@@ -259,6 +259,8 @@ if st.session_state.show_result:
 
                     st.session_state.claims.append({
                         "claim_id": claim_id,
+                        "insurance": insurance,
+                        "hcpcs": hcpcs,
                         "risk": risk_score,
                         "status": "Submitted"
                     })
