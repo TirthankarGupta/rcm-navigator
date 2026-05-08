@@ -420,6 +420,7 @@ if st.session_state.claims:
     )
 
     avg_risk = df_claims["risk"].mean()
+
     st.sidebar.write(
         f"Average Risk Score: {avg_risk:.1f}/100"
     )
@@ -427,17 +428,17 @@ if st.session_state.claims:
     for c in st.session_state.claims:
 
         if c["risk"] <= 15:
-        icon = "🟢"
+            icon = "🟢"
 
-    elif c["risk"] <= 40:
-        icon = "🟡"
+        elif c["risk"] <= 40:
+            icon = "🟡"
 
-    else:
-        icon = "🔴"
+        else:
+            icon = "🔴"
 
-    st.sidebar.write(
-        f"{icon} Claim #{c['claim_id']} | Risk: {c['risk']}/100"
-    )
+        st.sidebar.write(
+            f"{icon} Claim #{c['claim_id']} | Risk: {c['risk']}/100"
+        )
 
     csv = df_claims.to_csv(
         index=False
