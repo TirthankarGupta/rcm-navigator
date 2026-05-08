@@ -412,7 +412,7 @@ if st.session_state.claims:
     st.sidebar.markdown("---")
 
     st.sidebar.markdown(
-        "### 📊 Submitted Claims Summary"
+        "## 🧾 Claims Operations Panel"
     )
 
     st.sidebar.write(
