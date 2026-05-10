@@ -353,7 +353,43 @@ LIMITATIONS_RULES = {
         "limitation": "1 device per 5 years",
         "exclusion": "Excluded for preventive use",
         "documentation": "Medical necessity documentation, instability proof"
-    }
+    },
+
+    ("AETNA MEDICARE", "L0621"): {
+    "limitation": "1 device per 5 years",
+    "exclusion": "Excluded if elastic/fabric only",
+    "documentation": "SWO, proof of delivery, spinal weakness documentation"
+},
+
+("CGS MEDICARE", "L0621"): {
+    "limitation": "Ambulatory patients only",
+    "exclusion": "Excluded if not rigid/semi-rigid",
+    "documentation": "Face-to-face encounter, SWO, spinal weakness"
+},
+
+("AETNA MEDICARE", "L3908"): {
+    "limitation": "1 brace per affected side within useful lifetime",
+    "exclusion": "Excluded for comfort/support use only",
+    "documentation": "Wrist injury documentation, SWO, physician notes"
+},
+
+("AETNA MEDICARE", "L4361"): {
+    "limitation": "Coverage limited to ambulatory necessity",
+    "exclusion": "Excluded for mild sprain without instability",
+    "documentation": "Ankle injury documentation, SWO, proof of ambulation difficulty"
+},
+
+("AETNA MEDICARE", "L1902"): {
+    "limitation": "1 brace per affected extremity",
+    "exclusion": "Excluded for preventive athletic use",
+    "documentation": "Ankle instability findings, SWO, physician documentation"
+},
+
+("AETNA MEDICARE", "L3670"): {
+    "limitation": "Coverage limited to injury/post-operative use",
+    "exclusion": "Excluded for temporary discomfort only",
+    "documentation": "Shoulder injury documentation, treatment plan, SWO"
+}
 
 }
 # ---- FUNCTION ----
