@@ -270,12 +270,16 @@ HCPCS_EXCLUSIONS = {
 
         "For Abdominal Binders use 'CG'.",
 
+        "For CO-prefab use ONLY 'KX'.",
+
         "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
     ],
 
     "L3908": [
 
         "For Abdominal Binders use 'CG'.",
+
+        "For CO-prefab use ONLY 'KX'.",
 
         "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
     ],
@@ -286,6 +290,8 @@ HCPCS_EXCLUSIONS = {
 
         "For Abdominal Binders use 'CG'.",
 
+        "For CO-prefab use ONLY 'KX'.",
+
         "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
     ],
 
@@ -295,6 +301,8 @@ HCPCS_EXCLUSIONS = {
 
         "For Abdominal Binders use 'CG'.",
 
+        "For CO-prefab use ONLY 'KX'.",
+
         "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
     ],
 
@@ -302,9 +310,11 @@ HCPCS_EXCLUSIONS = {
 
     "L4361": [
 
-        "Modifiers only 'LT|RT & KX'.",
+        "For Abdominal Binders use 'CG'.",
 
-        "For Abdominal Binders use 'CG'."
+        "For CO-prefab use ONLY 'KX'.",
+
+        "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
     ]
 }
 # ---- FUNCTION ----
