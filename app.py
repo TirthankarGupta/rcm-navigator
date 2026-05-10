@@ -621,7 +621,7 @@ if hcpcs and insurance:
 
         st.sidebar.markdown("---")
 
-        st.sidebar.markdown("## ⚠ Coverage Intelligence")
+        st.sidebar.markdown("## 🧠 Payer Rules & Coverage Intelligence")
 
         st.sidebar.warning(
             f"Limitation:\n\n{rule_data['limitation']}"
