@@ -123,6 +123,38 @@ hcpcs_data = {
     "L3908": {"body": "Wrist / Hand"},
     "L4361": {"body": "Foot / Ankle"},
 }
+
+# ---- HCPCS CATEGORY MAP ----
+
+HCPCS_CATEGORIES = {
+
+    "E0114": "MOBILITY_DEVICE",
+    "E0143": "MOBILITY_DEVICE",
+    "E0149": "MOBILITY_DEVICE",
+
+    "L0172": "CERVICAL_ORTHOSIS",
+    "L0174": "CERVICAL_ORTHOSIS",
+
+    "L0621": "ABDOMINAL_BINDER",
+
+    "L1620": "HIP_ORTHOSIS",
+
+    "L1820": "KNEE_ORTHOSIS",
+    "L1830": "KNEE_ORTHOSIS",
+    "L1833": "KNEE_ORTHOSIS",
+
+    "L1902": "ANKLE_ORTHOSIS",
+
+    "L3260": "POST_OP_SHOE",
+
+    "L3670": "SHOULDER_ORTHOSIS",
+
+    "L3809": "WRIST_HAND_ORTHOSIS",
+    "L3908": "WRIST_HAND_ORTHOSIS",
+
+    "L4361": "WALKER_BOOT",
+}
+
 RULES_DB = {
 
     "medicare": {
