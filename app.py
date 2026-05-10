@@ -203,6 +203,8 @@ HCPCS_EXCLUSIONS = {
     ],
     
     "L0621": [
+
+        "Modifiers only 'LT|RT & KX'.",
         
         "For CO-prefab use ONLY 'KX'.",
         
