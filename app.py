@@ -82,8 +82,8 @@ div.stButton > button {
 
 /* Checkbox color */
 
-.stCheckbox input[type="checkbox"] {
-    accent-color: #2E8B57;
+input[type="checkbox"] {
+    accent-color: #2E8B57 !important;
 }
 
 </style>
