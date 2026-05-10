@@ -317,6 +317,40 @@ HCPCS_EXCLUSIONS = {
         "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
     ]
 }
+
+LIMITATIONS_RULES = {
+
+    ("AETNA MEDICARE", "L1833"): {
+        "limitation": "1 device per 3–5 years",
+        "exclusion": "Not covered for mild OA without instability",
+        "documentation": "Physician notes of instability, SWO, face-to-face"
+    },
+
+    ("CGS MEDICARE", "L1833"): {
+        "limitation": "Ambulatory patients only; replacement if lost/stolen/damaged",
+        "exclusion": "Excluded if billed incorrectly (OTS vs custom)",
+        "documentation": "Face-to-face encounter, SWO, instability documentation"
+    },
+
+    ("AETNA (14079)", "L1833"): {
+        "limitation": "1 per 3 years",
+        "exclusion": "Not covered for preventive/postural use",
+        "documentation": "Chart notes of ligament laxity or instability"
+    },
+
+    ("AETNA BETTER HEALTH", "L1833"): {
+        "limitation": "Limited to medically necessary cases",
+        "exclusion": "Excluded if used for mild pain only",
+        "documentation": "Requires physician documentation of instability"
+    },
+
+    ("BCBS", "L1833"): {
+        "limitation": "1 device per 5 years",
+        "exclusion": "Excluded for preventive use",
+        "documentation": "Medical necessity documentation, instability proof"
+    }
+
+}
 # ---- FUNCTION ----
 def get_section(insurance_name, raw_data):
 
