@@ -160,10 +160,14 @@ RULES_DB = {
 }
 
 HCPCS_EXCLUSIONS = {
+
     "L1833": [
-        "Abdominal Binders use 'CG'",
-        "CO-prefab use ONLY 'KX'",
-        "Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'",
+
+        "For Abdominal Binders use 'CG'.",
+
+        "For CO-prefab use ONLY 'KX'.",
+
+        "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
     ]
 }
 # ---- FUNCTION ----
