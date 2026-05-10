@@ -444,58 +444,7 @@ if st.session_state.show_result:
             if not charges_valid:
                 failures.append("Invalid charges/allowable")
 
-            # ---- RISK SCORE ----
-            st.markdown("---")
-
-            total_checks = 6
-            failed_checks = len(failures)
-
-            risk_score = int(
-                (failed_checks / total_checks) * 100
-            )
-
-            st.markdown(
-                f"### 📊 Risk Score: {risk_score}/100"
-            )
-
-            st.markdown("### 🧠 Decision")
-
-            if len(failures) == 0:
-                st.success("✔ SAFE TO SUBMIT")
-
-            elif len(failures) <= 2:
-                st.warning("⚠ NEEDS REVIEW")
-
-            else:
-                st.error("❌ HIGH RISK")
-
-            # ---- FINAL RECOMMENDATION ----
-            if len(failures) == 0:
-                st.success("🚀 READY FOR SUBMISSION")
-
-            elif len(failures) <= 2:
-                st.warning("🛠 FIX ISSUES BEFORE SUBMISSION")
-
-            else:
-                st.error("⛔ DO NOT SUBMIT – HIGH RISK")
-
-            # ---- SUBMIT BUTTON ----
-            if st.button("📌 Mark as Submitted"):
-
-                if claim_id:
-
-                    st.session_state.claims.append({
-                        "claim_id": claim_id,
-                        "insurance": insurance,
-                        "hcpcs": hcpcs,
-                        "risk": risk_score,
-                        "status": "Submitted"
-                    })
-
-                    st.success(
-                        "Claim recorded successfully"
-                    )
-
+           
             # ---- DENIAL INSIGHT ----
             if failures:
 
