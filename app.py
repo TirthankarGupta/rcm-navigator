@@ -205,7 +205,7 @@ HCPCS_EXCLUSIONS = {
     "L0621": [
     "For CO-prefab use ONLY 'KX'.",
     "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
-]
+    ]
 }
 # ---- FUNCTION ----
 def get_section(insurance_name, raw_data):
