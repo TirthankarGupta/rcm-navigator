@@ -654,9 +654,9 @@ if st.session_state.show_result:
     
 # ---- COVERAGE INTELLIGENCE PANEL ----
 
-if hcpcs and insurance_name:
+if hcpcs and insurance:
 
-    insurance_key = insurance_name.strip().upper()
+    insurance_key = insurance.strip().upper()
     hcpcs_key = hcpcs.strip().upper()
 
     rule_data = LIMITATIONS_RULES.get(
