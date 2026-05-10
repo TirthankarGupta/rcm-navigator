@@ -393,7 +393,7 @@ if st.session_state.show_result:
                         "- Validate charge and allowable amounts"
                     )
 
-                       # ---- CHECKLIST ----
+                                  # ---- CHECKLIST ----
 
             st.markdown("---")
             st.markdown("### 📋 Checklist")
@@ -405,24 +405,32 @@ if st.session_state.show_result:
                 []
             )
 
+            checklist_lines = []
+
             for line in section.split("\n"):
 
                 clean_line = line.strip()
 
-                if (
-                    clean_line
-                    and "aetna" not in clean_line.lower()
-                    and "-----" not in clean_line
-                    and not any(
-                        term.lower() in clean_line.lower()
-                        for term in exclude_terms
-                    )
-                ):
+                if not clean_line:
+                    continue
 
-                    st.markdown(
-                        f"<div class='checklist'>✅ {clean_line}</div>",
-                        unsafe_allow_html=True
-                    )
+                if "aetna" in clean_line.lower():
+                    continue
+
+                if "-----" in clean_line:
+                    continue
+
+                if clean_line in exclude_terms:
+                    continue
+
+                checklist_lines.append(clean_line)
+
+            for item in checklist_lines:
+
+                st.markdown(
+                    f"<div class='checklist'>✅ {item}</div>",
+                    unsafe_allow_html=True
+                )
 
         # ---- DEVICE IMAGE ----
 
