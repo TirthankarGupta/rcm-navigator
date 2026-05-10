@@ -208,7 +208,9 @@ HCPCS_EXCLUSIONS = {
         
         "For CO-prefab use ONLY 'KX'.",
         
-        "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
+        "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'.",
+
+        "Split as necessary."
     ]
 }
 # ---- FUNCTION ----
