@@ -123,7 +123,41 @@ hcpcs_data = {
     "L3908": {"body": "Wrist / Hand"},
     "L4361": {"body": "Foot / Ankle"},
 }
+RULES_DB = {
 
+    "medicare": {
+
+        "L0621": {
+
+            "checklist": [
+                "Verify lumbar brace documentation",
+                "Confirm medical necessity",
+                "Check physician signature",
+                "Validate HCPCS against delivery receipt"
+            ],
+
+            "limitations": [
+                "Same or similar device history check required",
+                "Frequency limitation may apply"
+            ]
+        },
+
+        "L1833": {
+
+            "checklist": [
+                "Verify knee orthosis documentation",
+                "Check referring physician details",
+                "Validate Dx supports knee instability",
+                "Confirm delivery receipt signature"
+            ],
+
+            "limitations": [
+                "Prior authorization may apply",
+                "Check same/similar history"
+            ]
+        }
+    }
+}
 # ---- FUNCTION ----
 def get_section(insurance_name, raw_data):
 
