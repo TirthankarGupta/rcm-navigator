@@ -393,7 +393,7 @@ if st.session_state.show_result:
                         "- Validate charge and allowable amounts"
                     )
 
-                                  # ---- CHECKLIST ----
+                                              # ---- CHECKLIST ----
 
             st.markdown("---")
             st.markdown("### 📋 Checklist")
@@ -431,7 +431,6 @@ if st.session_state.show_result:
                     f"<div class='checklist'>✅ {item}</div>",
                     unsafe_allow_html=True
                 )
-
         # ---- DEVICE IMAGE ----
 
         if hcpcs:
