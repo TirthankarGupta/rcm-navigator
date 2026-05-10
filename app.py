@@ -80,6 +80,12 @@ div.stButton > button {
     margin-bottom: 10px;
 }
 
+/* Checkbox color */
+
+.stCheckbox input[type="checkbox"] {
+    accent-color: #2E8B57;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
