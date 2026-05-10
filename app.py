@@ -381,61 +381,77 @@ if st.session_state.show_result:
                         "- Validate charge and allowable amounts"
                     )
 
-            # ---- CHECKLIST ----
-            st.markdown("---")
-            st.markdown("### 📋 Checklist")
+           # ---- CHECKLIST ----
 
-            for line in section.split("\n"):
+st.markdown("---")
+st.markdown("### 📋 Checklist")
 
-                if (
-                    line.strip()
-                    and "aetna" not in line.lower()
-                    and "-----" not in line
-                ):
+insurance_key = insurance_name.lower().strip()
+hcpcs_key = hcpcs.upper().strip()
 
-                    st.markdown(
-                        f"<div class='checklist'>✅ {line.strip()}</div>",
-                        unsafe_allow_html=True
-                    )
+dynamic_rules = (
+    RULES_DB
+    .get(insurance_key, {})
+    .get(hcpcs_key, {})
+)
 
-        # ---- DEVICE IMAGE ----
-        if hcpcs:
+checklist_items = dynamic_rules.get("checklist", [])
 
-            code = hcpcs.strip().upper()
+if checklist_items:
 
-            image_path = f"images/{code}.jpg"
+    for item in checklist_items:
 
-            if os.path.exists(image_path):
+        st.markdown(
+            f"<div class='checklist'>✅ {item}</div>",
+            unsafe_allow_html=True
+        )
 
-                with col2:
+else:
 
-                    if code in hcpcs_data:
+    st.warning(
+        "No dynamic checklist rules found for this Insurance + HCPCS combination."
+    )
 
-                        st.success(
-                            f"🦴 Affected Area: {hcpcs_data[code]['body']}"
-                        )
+# ---- DEVICE IMAGE ----
 
-                    st.markdown(
-                        f"### 🩺 Device ({code})"
-                    )
+if hcpcs:
 
-                    st.image(
-                        image_path,
-                        use_column_width=True
-                    )
+    code = hcpcs.strip().upper()
 
-                    st.markdown(
-                        "### 🦴 Human Skeleton"
-                    )
+    image_path = f"images/{code}.jpg"
 
-                    st.image(
-                        "images/skeleton.jpg",
-                        use_column_width=True
-                    )
+    if os.path.exists(image_path):
 
-    else:
-        st.error("Insurance not found")
+        with col2:
 
+            if code in hcpcs_data:
+
+                st.markdown(
+                    f"🦴 Affected Area: {hcpcs_data[code]['body']}"
+                )
+
+            st.markdown(
+                f"🩺 Device ({code})"
+            )
+
+            st.image(
+                image_path,
+                use_column_width=True
+            )
+
+            st.markdown(
+                "🦴 Human Skeleton"
+            )
+
+            st.image(
+                "images/skeleton.jpg",
+                use_column_width=True
+            )
+
+else:
+
+    st.error("Insurance not found")
+    
 # ---- CLAIM SUMMARY ----
 if st.session_state.claims:
 
