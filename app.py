@@ -95,7 +95,6 @@ st.markdown("## 🔎 Enter Insurance Name")
 # ---- INPUTS ----
 insurance = st.text_input("")
 hcpcs = st.text_input("Enter HCPCS Code (Optional)")
-claim_id = st.text_input("Enter Claim Number (Optional)")
 
 payer = insurance.lower()
 payer_type = "generic"
@@ -622,9 +621,7 @@ if hcpcs and insurance:
 
         st.sidebar.markdown("---")
 
-        st.sidebar.markdown(
-            "## ⚠ Coverage Intelligence"
-        )
+        st.sidebar.markdown("## ⚠ Coverage Intelligence")
 
         st.sidebar.warning(
             f"Limitation:\n\n{rule_data['limitation']}"
