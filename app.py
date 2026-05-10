@@ -652,51 +652,33 @@ if st.session_state.show_result:
 
         st.error("Insurance not found")
     
-# ---- CLAIM SUMMARY ----
-if st.session_state.claims:
+# ---- COVERAGE INTELLIGENCE PANEL ----
 
-    df_claims = pd.DataFrame(
-        st.session_state.claims
+if hcpcs and insurance_name:
+
+    insurance_key = insurance_name.strip().upper()
+    hcpcs_key = hcpcs.strip().upper()
+
+    rule_data = LIMITATIONS_RULES.get(
+        (insurance_key, hcpcs_key)
     )
 
-    st.sidebar.markdown("---")
+    if rule_data:
 
-    st.sidebar.markdown(
-        "## 🧾 Claims Operations Panel"
-    )
+        st.sidebar.markdown("---")
 
-    st.sidebar.write(
-        f"Total Claims Submitted: {len(st.session_state.claims)}"
-    )
-
-    avg_risk = df_claims["risk"].mean()
-
-    st.sidebar.write(
-        f"Average Risk Score: {avg_risk:.1f}/100"
-    )
-
-    for c in st.session_state.claims:
-
-        if c["risk"] <= 15:
-            icon = "🟢"
-
-        elif c["risk"] <= 40:
-            icon = "🟡"
-
-        else:
-            icon = "🔴"
-
-        st.sidebar.write(
-            f"{icon} Claim #{c['claim_id']} | Risk: {c['risk']}/100"
+        st.sidebar.markdown(
+            "## ⚠ Coverage Intelligence"
         )
 
-    csv = df_claims.to_csv(
-        index=False
-    ).encode("utf-8")
+        st.sidebar.warning(
+            f"Limitation:\n\n{rule_data['limitation']}"
+        )
 
-    st.sidebar.download_button(
-        label="📥 Export Claims to CSV",
-        data=csv,
-        file_name="submitted_claims.csv",
-        mime="text/csv"
-    )
+        st.sidebar.error(
+            f"Exclusion:\n\n{rule_data['exclusion']}"
+        )
+
+        st.sidebar.info(
+            f"Documentation:\n\n{rule_data['documentation']}"
+        )
