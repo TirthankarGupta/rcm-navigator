@@ -393,73 +393,76 @@ if st.session_state.show_result:
                         "- Validate charge and allowable amounts"
                     )
 
-           # ---- CHECKLIST ----
+                       # ---- CHECKLIST ----
 
-st.markdown("---")
-st.markdown("### 📋 Checklist")
+            st.markdown("---")
+            st.markdown("### 📋 Checklist")
 
-hcpcs_key = hcpcs.strip().upper()
-exclude_terms = HCPCS_EXCLUSIONS.get(hcpcs_key, [])
+            hcpcs_key = hcpcs.strip().upper()
 
-for line in section.split("\n"):
-    clean_line = line.strip()
-
-    if (
-        clean_line
-        and "aetna" not in clean_line.lower()
-        and "-----" not in clean_line
-        and not any(term.lower() in clean_line.lower() for term in exclude_terms)
-    ):
-        st.markdown(
-            f"<div class='checklist'>✅ {clean_line}</div>",
-            unsafe_allow_html=True
-        )
-
-else:
-
-    st.warning(
-        "No dynamic checklist rules found for this Insurance + HCPCS combination."
-    )
-
-# ---- DEVICE IMAGE ----
-
-if hcpcs:
-
-    code = hcpcs.strip().upper()
-
-    image_path = f"images/{code}.jpg"
-
-    if os.path.exists(image_path):
-
-        with col2:
-
-            if code in hcpcs_data:
-
-                st.markdown(
-                    f"🦴 Affected Area: {hcpcs_data[code]['body']}"
-                )
-
-            st.markdown(
-                f"🩺 Device ({code})"
+            exclude_terms = HCPCS_EXCLUSIONS.get(
+                hcpcs_key,
+                []
             )
 
-            st.image(
-                image_path,
-                use_column_width=True
-            )
+            for line in section.split("\n"):
 
-            st.markdown(
-                "🦴 Human Skeleton"
-            )
+                clean_line = line.strip()
 
-            st.image(
-                "images/skeleton.jpg",
-                use_column_width=True
-            )
+                if (
+                    clean_line
+                    and "aetna" not in clean_line.lower()
+                    and "-----" not in clean_line
+                    and not any(
+                        term.lower() in clean_line.lower()
+                        for term in exclude_terms
+                    )
+                ):
 
-else:
+                    st.markdown(
+                        f"<div class='checklist'>✅ {clean_line}</div>",
+                        unsafe_allow_html=True
+                    )
 
-    st.error("Insurance not found")
+        # ---- DEVICE IMAGE ----
+
+        if hcpcs:
+
+            code = hcpcs.strip().upper()
+
+            image_path = f"images/{code}.jpg"
+
+            if os.path.exists(image_path):
+
+                with col2:
+
+                    if code in hcpcs_data:
+
+                        st.markdown(
+                            f"🦴 Affected Area: {hcpcs_data[code]['body']}"
+                        )
+
+                    st.markdown(
+                        f"🩺 Device ({code})"
+                    )
+
+                    st.image(
+                        image_path,
+                        use_column_width=True
+                    )
+
+                    st.markdown(
+                        "🦴 Human Skeleton"
+                    )
+
+                    st.image(
+                        "images/skeleton.jpg",
+                        use_column_width=True
+                    )
+
+    else:
+
+        st.error("Insurance not found")
     
 # ---- CLAIM SUMMARY ----
 if st.session_state.claims:
