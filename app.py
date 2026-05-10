@@ -158,6 +158,14 @@ RULES_DB = {
         }
     }
 }
+
+HCPCS_EXCLUSIONS = {
+    "L1833": [
+        "Abdominal Binders use 'CG'",
+        "CO-prefab use ONLY 'KX'",
+        "Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'",
+    ]
+}
 # ---- FUNCTION ----
 def get_section(insurance_name, raw_data):
 
@@ -386,23 +394,20 @@ if st.session_state.show_result:
 st.markdown("---")
 st.markdown("### 📋 Checklist")
 
-insurance_key = insurance_name.lower().strip()
-hcpcs_key = hcpcs.upper().strip()
+hcpcs_key = hcpcs.strip().upper()
+exclude_terms = HCPCS_EXCLUSIONS.get(hcpcs_key, [])
 
-dynamic_rules = (
-    RULES_DB
-    .get(insurance_key, {})
-    .get(hcpcs_key, {})
-)
+for line in section.split("\n"):
+    clean_line = line.strip()
 
-checklist_items = dynamic_rules.get("checklist", [])
-
-if checklist_items:
-
-    for item in checklist_items:
-
+    if (
+        clean_line
+        and "aetna" not in clean_line.lower()
+        and "-----" not in clean_line
+        and not any(term.lower() in clean_line.lower() for term in exclude_terms)
+    ):
         st.markdown(
-            f"<div class='checklist'>✅ {item}</div>",
+            f"<div class='checklist'>✅ {clean_line}</div>",
             unsafe_allow_html=True
         )
 
