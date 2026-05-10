@@ -193,6 +193,26 @@ RULES_DB = {
 
 HCPCS_EXCLUSIONS = {
 
+    # ---- KNEE ORTHOSIS ----
+
+    "L1820": [
+
+        "For Abdominal Binders use 'CG'.",
+
+        "For CO-prefab use ONLY 'KX'.",
+
+        "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
+    ],
+
+    "L1830": [
+
+        "For Abdominal Binders use 'CG'.",
+
+        "For CO-prefab use ONLY 'KX'.",
+
+        "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
+    ],
+
     "L1833": [
 
         "For Abdominal Binders use 'CG'.",
@@ -201,16 +221,90 @@ HCPCS_EXCLUSIONS = {
 
         "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
     ],
-    
+
+    # ---- ABDOMINAL BINDER ----
+
     "L0621": [
 
         "Modifiers only 'LT|RT & KX'.",
-        
+
         "For CO-prefab use ONLY 'KX'.",
-        
+
         "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'.",
 
         "Split as necessary."
+    ],
+
+    # ---- MOBILITY DEVICES ----
+
+    "E0114": [
+
+        "Modifiers only 'LT|RT & KX'.",
+
+        "For Abdominal Binders use 'CG'.",
+
+        "For CO-prefab use ONLY 'KX'."
+    ],
+
+    "E0143": [
+
+        "Modifiers only 'LT|RT & KX'.",
+
+        "For Abdominal Binders use 'CG'.",
+
+        "For CO-prefab use ONLY 'KX'."
+    ],
+
+    "E0149": [
+
+        "Modifiers only 'LT|RT & KX'.",
+
+        "For Abdominal Binders use 'CG'.",
+
+        "For CO-prefab use ONLY 'KX'."
+    ],
+
+    # ---- WRIST / HAND ----
+
+    "L3809": [
+
+        "For Abdominal Binders use 'CG'.",
+
+        "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
+    ],
+
+    "L3908": [
+
+        "For Abdominal Binders use 'CG'.",
+
+        "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
+    ],
+
+    # ---- SHOULDER ----
+
+    "L3670": [
+
+        "For Abdominal Binders use 'CG'.",
+
+        "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
+    ],
+
+    # ---- ANKLE ----
+
+    "L1902": [
+
+        "For Abdominal Binders use 'CG'.",
+
+        "For Walker/Wheelchair/Crutches/HO-Prefab 'NU & KX'."
+    ],
+
+    # ---- WALKER BOOT ----
+
+    "L4361": [
+
+        "Modifiers only 'LT|RT & KX'.",
+
+        "For Abdominal Binders use 'CG'."
     ]
 }
 # ---- FUNCTION ----
