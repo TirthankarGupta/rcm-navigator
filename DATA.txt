@@ -13,7 +13,7 @@ Split as necessary.
 Box 24 [NPI] = Box 33a = 1174573307.
 Box 31 [Signature of Physician or Supplier] CPO Services Inc.
 Box 32 [Service Facility Information] KEEP IT 'BLANK'.
-Submit through Waystar.
+Submit through clearinghouse.
 
 ---
 
@@ -32,7 +32,7 @@ Do not bill for 'E0190' & 'L3260' - They are non-covered.
 Ensure narrative for 'L0999'.
 Change NPI as per location.
 Box 32 [Service Facility Information] KEEP IT 'BLANK'.
-Submit through Waystar.
+Submit through clearinghouse.
 
 ---
 
@@ -50,7 +50,7 @@ Split as necessary
 Box 24 [NPI] = Box 33a = 1174573307.
 Box 31 [Signature of Physician or Supplier] CPO Services Inc.
 Box 32 [Service Facility Information] KEEP IT 'BLANK'.
-Submit through Waystar.
+Submit through clearinghouse.
 
 ---
 
@@ -67,7 +67,7 @@ Split as necessary
 Box 24 [NPI] = Box 33a = 1174573307.
 Box 31 [Signature of Physician or Supplier] CPO Services Inc.
 Box 32 [Service Facility Information] KEEP IT 'BLANK'.
-Submit through Waystar.
+Submit through clearinghouse.
 
 ---
 
@@ -83,7 +83,7 @@ For 'A4565' use NU & KX as modifiers.
 Split as necessary.
 Box 31 = Box 33.
 Box 32 [Service Facility Information] KEEP IT 'BLANK'.
-Submit through Waystar.
+Submit through clearinghouse.
 
 ---
 
@@ -96,6 +96,6 @@ No splitting.
 Box 24 [NPI] = Box 33a = 1174573307.
 Box 31 [Signature of Physician or Supplier] CPO Services Inc.
 Box 32 [Service Facility Information] KEEP IT 'BLANK'.
-Submit through Waystar.
+Submit through clearinghouse.
 
 ---
