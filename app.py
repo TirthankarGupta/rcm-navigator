@@ -656,14 +656,15 @@ if st.session_state.show_result:
                         use_column_width=True
                     )
 
-                    st.markdown(
-                        "🦴 Human Skeleton"
-                    )
-
+                    if code in bodypart_images:
+                        st.markdown(
+                            "🦴 Anatomy Reference"
+                        )
+                      
                     st.image(
-                        "images/skeleton.jpg",
+                        bodypart_images[code],
                         use_column_width=True
-                    )
+                        )
 
     else:
 
