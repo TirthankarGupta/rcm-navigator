@@ -195,7 +195,34 @@ RULES_DB = {
         }
     }
 }
+# ---- BODY PART ANATOMY IMAGES ----
 
+bodypart_images = {
+
+    # ---- KNEE ----
+
+    "L1820": "images/knee.jpg",
+    "L1830": "images/knee.jpg",
+    "L1833": "images/knee.jpg",
+
+    # ---- LUMBAR SPINE ----
+
+    "L0621": "images/lumbar.jpg",
+
+    # ---- ANKLE / FOOT ----
+
+    "L1902": "images/ankle.jpg",
+    "L4361": "images/ankle.jpg",
+
+    # ---- WRIST / HAND ----
+
+    "L3809": "images/wrist.jpg",
+    "L3908": "images/wrist.jpg",
+
+    # ---- SHOULDER ----
+
+    "L3670": "images/shoulder.jpg"
+}
 HCPCS_EXCLUSIONS = {
 
     # ---- KNEE ORTHOSIS ----
