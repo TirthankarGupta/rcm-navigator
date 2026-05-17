@@ -43,7 +43,7 @@ uploaded_file = st.file_uploader(
 
 if uploaded_file is not None:
 
-    with open(f"docs/{uploaded_file.name}", "wb") as f:
+    with open(f"uploaded_docs/{uploaded_file.name}", "wb") as f:
 
         f.write(uploaded_file.getbuffer())
 
