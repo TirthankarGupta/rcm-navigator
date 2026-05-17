@@ -15,9 +15,11 @@ if not st.session_state.authenticated:
 
     if st.button("Login"):
 
+        users = st.secrets["users"]
+
         if (
-            username == st.secrets["username"]
-            and password == st.secrets["password"]
+            username in users
+            and password == users[username]
         ):
             st.session_state.authenticated = True
             st.success("Login successful")
