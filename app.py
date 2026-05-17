@@ -73,6 +73,37 @@ if st.session_state.username == "admin":
     st.write("Stored Documents:")
 
     st.write(os.listdir("uploaded_docs"))
+    stored_files = os.listdir("uploaded_docs")
+
+    pdf_files = [file for file in stored_files if file.endswith(".pdf")]
+    
+    if pdf_files:
+    
+        latest_pdf = pdf_files[-1]
+    
+        with pdfplumber.open(f"uploaded_docs/{latest_pdf}") as pdf:
+    
+            extracted_text = ""
+    
+            for page in pdf.pages:
+    
+                text = page.extract_text()
+    
+                if text:
+    
+                    extracted_text += text + "\n"
+    
+        st.info(f"Loaded preview from: {latest_pdf}")
+    
+        st.text_area(
+    
+            "Extraction Preview",
+    
+            extracted_text[:1000],
+    
+            height=200
+    
+        )
 
 # ---- LOGOUT BUTTON ----
 
