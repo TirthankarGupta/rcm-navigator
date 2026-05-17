@@ -81,7 +81,8 @@ if st.session_state.username == "admin":
     
         latest_pdf = pdf_files[-1]
     
-        with pdfplumber.open(f"uploaded_docs/{latest_pdf}") as pdf:
+        pdf_path = os.path.join("uploaded_docs", latest_pdf)
+        with pdfplumber.open(pdf_path) as pdf:
     
             extracted_text = ""
     
