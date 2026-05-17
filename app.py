@@ -104,11 +104,10 @@ if pdf_files:
 
                 extracted_text += text + "\n"
 
-    st.info(f"Loaded preview from: {latest_pdf}")
-
+    
     st.text_area(
 
-        "Stored PDF Preview",
+        "Preview",
 
         extracted_text[:1000],
 
