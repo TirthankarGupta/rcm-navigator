@@ -49,6 +49,9 @@ if uploaded_file is not None:
 
     st.success("Document saved successfully")
 
+st.write("Stored Documents:")
+st.write(os.listdir("uploaded_docs"))
+
 # ---- LOGOUT BUTTON ----
 
 st.sidebar.markdown("---")
