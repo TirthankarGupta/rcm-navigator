@@ -35,23 +35,37 @@ if not st.session_state.authenticated:
 # ---- DOCUMENT UPLOAD ----
 
 if st.session_state.username == "admin":
+
     uploaded_file = st.file_uploader(
-    
+
         "Upload Document",
-    
+
         type=["pdf", "csv", "txt", "docx", "xls", "xlsx", "xlsm"]
-    
+
     )
-    
+
     if uploaded_file is not None:
-    
+
         with open(f"uploaded_docs/{uploaded_file.name}", "wb") as f:
-    
+
             f.write(uploaded_file.getbuffer())
-    
+
+        with pdfplumber.open(uploaded_file) as pdf:
+
+            extracted_text = ""
+
+            for page in pdf.pages:
+
+                text = page.extract_text()
+
+                if text:
+
+                    extracted_text += text + "\n"
+
         st.success("Document saved successfully")
-    
+
     st.write("Stored Documents:")
+
     st.write(os.listdir("uploaded_docs"))
 
 # ---- LOGOUT BUTTON ----
