@@ -28,6 +28,16 @@ if not st.session_state.authenticated:
 
     st.stop()
 
+# ---- LOGOUT BUTTON ----
+
+st.sidebar.markdown("---")
+
+if st.sidebar.button("🚪 Logout"):
+
+    st.session_state.authenticated = False
+
+    st.rerun()
+
 # ---- PAGE CONFIG ----
 st.set_page_config(
     page_title="Insurance Checklist Assistant",
