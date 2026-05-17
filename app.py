@@ -65,7 +65,7 @@ if st.session_state.username == "admin":
         st.success("Document saved successfully")
         st.info("PDF text extraction completed")
         st.text_area(
-            "Extraction Preview",
+            "Current Upload Preview",
             extracted_text[:1000],
             height=200
         )
@@ -98,7 +98,7 @@ if st.session_state.username == "admin":
     
         st.text_area(
     
-            "Extraction Preview",
+            "Stored PDF Preview",
     
             extracted_text[:1000],
     
