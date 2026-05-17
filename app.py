@@ -63,6 +63,12 @@ if st.session_state.username == "admin":
                     extracted_text += text + "\n"
 
         st.success("Document saved successfully")
+        st.info("PDF text extraction completed")
+        st.text_area(
+            "Extraction Preview",
+            extracted_text[:1000],
+            height=200
+        )
 
     st.write("Stored Documents:")
 
