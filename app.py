@@ -31,6 +31,16 @@ if not st.session_state.authenticated:
 
     st.stop()
 
+# ---- PDF UPLOAD ----
+
+uploaded_pdf = st.file_uploader(
+
+    "Upload PDF Document",
+
+    type=["pdf"]
+
+)
+
 # ---- LOGOUT BUTTON ----
 
 st.sidebar.markdown("---")
