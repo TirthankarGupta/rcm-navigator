@@ -23,6 +23,7 @@ if not st.session_state.authenticated:
             and password == users[username]
         ):
             st.session_state.authenticated = True
+            st.session_state.username = username
             st.success("Login successful")
             st.rerun()
 
