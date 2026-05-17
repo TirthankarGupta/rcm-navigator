@@ -31,15 +31,23 @@ if not st.session_state.authenticated:
 
     st.stop()
 
-# ---- PDF UPLOAD ----
+# ---- DOCUMENT UPLOAD ----
 
-uploaded_pdf = st.file_uploader(
+uploaded_file = st.file_uploader(
 
-    "Upload PDF Document",
+    "Upload Document",
 
-    type=["pdf"]
+    type=["pdf", "csv", "txt", "docx", "xls", "xlsx", "xlsm"]
 
 )
+
+if uploaded_file is not None:
+
+    with open(f"docs/{uploaded_file.name}", "wb") as f:
+
+        f.write(uploaded_file.getbuffer())
+
+    st.success("Document saved successfully")
 
 # ---- LOGOUT BUTTON ----
 
