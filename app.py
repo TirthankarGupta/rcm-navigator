@@ -56,6 +56,14 @@ if st.session_state.username == "admin":
         with open(f"uploaded_docs/{uploaded_file.name}", "wb") as f:
 
             f.write(uploaded_file.getbuffer())
+                        
+        repo = g.get_repo("TirthankarGupta/rcm-navigator")
+        
+        repo.create_file(
+                f"uploaded_docs/{uploaded_file.name}",
+                f"Uploaded {uploaded_file.name}",
+                uploaded_file.getvalue()
+        )
 
         with pdfplumber.open(uploaded_file) as pdf:
 
