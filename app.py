@@ -5,7 +5,7 @@ import pdfplumber
 from github import Github
 
 # ---- GITHUB AUTHENTICATION ----
-github_token = st.secrets["GITHUB_TOKEN"]
+st.write(st.secrets)
 
 g = Github(github_token)
 
