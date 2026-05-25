@@ -24,7 +24,7 @@ if not st.session_state.authenticated:
 
     if st.button("Login"):
 
-        users = st.secrets["users"]
+        users = st.secrets["Users"]
 
         if (
             username in users
