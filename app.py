@@ -4,6 +4,12 @@ import os
 import pdfplumber
 from github import Github
 
+# ---- GITHUB AUTHENTICATION ----
+github_token = st.secrets["GITHUB_TOKEN"]
+
+g = Github(github_token)
+
+
 # ---- LOGIN SYSTEM ----
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
