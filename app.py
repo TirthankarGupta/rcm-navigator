@@ -565,7 +565,6 @@ if st.button("📌 Generate Checklist"):
 if st.session_state.show_result:
 
     section = get_section(insurance, data)
-    st.write(section)
     
 
     col1, col2 = st.columns([2, 1])
