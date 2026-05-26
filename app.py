@@ -816,3 +816,40 @@ if hcpcs and insurance:
         st.sidebar.info(
             f"Documentation:\n\n{rule_data['documentation']}"
         )
+
+        st.sidebar.markdown("---")
+
+        st.sidebar.markdown("## 📄 Retrieved Policy Intelligence")
+
+        search_terms = []
+
+        if insurance:
+            search_terms.append(insurance.lower())
+
+        if hcpcs:
+            search_terms.append(hcpcs.lower())
+
+        if dx_code:
+            search_terms.append(dx_code.lower())
+
+        matching_lines = []
+
+        for line in combined_knowledge.split("\n"):
+
+            line_lower = line.lower()
+
+            if any(term in line_lower for term in search_terms):
+
+                matching_lines.append(line)
+
+        if matching_lines:
+
+            unique_matches = list(dict.fromkeys(matching_lines))
+
+            for match in unique_matches[:10]:
+
+                st.sidebar.write(f"• {match}")
+
+        else:
+
+            st.sidebar.write("No matching policy guidance found.")
