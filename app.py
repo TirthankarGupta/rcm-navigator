@@ -821,26 +821,61 @@ if insurance or hcpcs or dx_code:
 
         st.sidebar.markdown("## 📄 Retrieved Policy Intelligence")
 
-        search_terms = []
-
-        if insurance:
-            search_terms.append(insurance.lower())
-
-        if hcpcs:
-            search_terms.append(hcpcs.lower())
-
-        if dx_code:
-            search_terms.append(dx_code.lower())
-
         matching_lines = []
 
-        for line in combined_knowledge.split("\n"):
+        knowledge_lines = combined_knowledge.split("\n")
 
-            line_lower = line.lower()
+        filtered_lines = knowledge_lines
 
-            if any(term in line_lower for term in search_terms):
+        # ---- STAGE 1: INSURANCE FILTER ----
 
-                matching_lines.append(line)
+        if insurance:
+
+            insurance_filtered = []
+
+            for line in filtered_lines:
+
+                if insurance.lower() in line.lower():
+
+                    insurance_filtered.append(line)
+
+            if insurance_filtered:
+
+                filtered_lines = insurance_filtered
+
+        # ---- STAGE 2: HCPCS FILTER ----
+
+        if hcpcs:
+
+            hcpcs_filtered = []
+
+            for line in filtered_lines:
+
+                if hcpcs.lower() in line.lower():
+
+                    hcpcs_filtered.append(line)
+
+            if hcpcs_filtered:
+
+                filtered_lines = hcpcs_filtered
+
+        # ---- STAGE 3: DX FILTER ----
+
+        if dx_code:
+
+            dx_filtered = []
+
+            for line in filtered_lines:
+
+                if dx_code.lower() in line.lower():
+
+                    dx_filtered.append(line)
+
+            if dx_filtered:
+
+                filtered_lines = dx_filtered
+
+        matching_lines = filtered_lines
 
         if matching_lines:
 
