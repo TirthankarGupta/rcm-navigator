@@ -104,30 +104,33 @@ pdf_files = [file for file in stored_files if file.endswith(".pdf")]
 
 if pdf_files:
 
-    latest_pdf = pdf_files[-1]
+    combined_knowledge = ""
 
-    pdf_path = os.path.join("uploaded_docs", latest_pdf)
+    for pdf_file in pdf_files:
 
-    with pdfplumber.open(pdf_path) as pdf:
+        pdf_path = os.path.join("uploaded_docs", pdf_file)
 
-        extracted_text = ""
+        with pdfplumber.open(pdf_path) as pdf:
 
-        for page in pdf.pages:
+            extracted_text = ""
 
-            text = page.extract_text()
+            for page in pdf.pages:
 
-            if text:
+                text = page.extract_text()
 
-                extracted_text += text + "\n"
+                if text:
 
-    
+                    extracted_text += text + "\n"
+
+        combined_knowledge += extracted_text + "\n"
+
     st.text_area(
 
         "Preview",
 
-        extracted_text[:1000],
+        combined_knowledge[:3000],
 
-        height=200
+        height=300
 
     )
 
