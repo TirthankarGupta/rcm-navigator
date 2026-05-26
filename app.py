@@ -790,7 +790,7 @@ if st.session_state.show_result:
     
 # ---- COVERAGE INTELLIGENCE PANEL ----
 
-if hcpcs and insurance:
+if insurance or hcpcs or dx_code:
 
     insurance_key = insurance.strip().upper()
     hcpcs_key = hcpcs.strip().upper()
