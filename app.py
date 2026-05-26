@@ -799,11 +799,15 @@ if insurance or hcpcs or dx_code:
         (insurance_key, hcpcs_key)
     )
 
+    # ---- STANDARD PAYER INTELLIGENCE ----
+
     if rule_data:
 
         st.sidebar.markdown("---")
 
-        st.sidebar.markdown("## 🧠 Payer Rules & Coverage Intelligence")
+        st.sidebar.markdown(
+            "## 🧠 Payer Rules & Coverage Intelligence"
+        )
 
         st.sidebar.warning(
             f"Limitation:\n\n{rule_data['limitation']}"
@@ -817,74 +821,116 @@ if insurance or hcpcs or dx_code:
             f"Documentation:\n\n{rule_data['documentation']}"
         )
 
-        st.sidebar.markdown("---")
+    # ---- STRUCTURED POLICY RETRIEVAL ----
 
-        st.sidebar.markdown("## 📄 Retrieved Policy Intelligence")
+    st.sidebar.markdown("---")
 
-        matching_lines = []
+    st.sidebar.markdown(
+        "## 📄 Retrieved Policy Intelligence"
+    )
 
-        knowledge_lines = combined_knowledge.split("\n")
+    sections = combined_knowledge.split("\n\n")
 
-        filtered_lines = knowledge_lines
+    matching_sections = []
 
-        # ---- STAGE 1: INSURANCE FILTER ----
+    for section in sections:
+
+        section_lower = section.lower()
+
+        score = 0
+
+        # ---- INSURANCE MATCH ----
 
         if insurance:
 
-            insurance_filtered = []
+            if insurance.lower() in section_lower:
 
-            for line in filtered_lines:
+                score += 1
 
-                if insurance.lower() in line.lower():
-
-                    insurance_filtered.append(line)
-
-            if insurance_filtered:
-
-                filtered_lines = insurance_filtered
-
-        # ---- STAGE 2: HCPCS FILTER ----
+        # ---- HCPCS MATCH ----
 
         if hcpcs:
 
-            hcpcs_filtered = []
+            if hcpcs.lower() in section_lower:
 
-            for line in filtered_lines:
+                score += 3
 
-                if hcpcs.lower() in line.lower():
-
-                    hcpcs_filtered.append(line)
-
-            if hcpcs_filtered:
-
-                filtered_lines = hcpcs_filtered
-
-        # ---- STAGE 3: DX FILTER ----
+        # ---- DX MATCH ----
 
         if dx_code:
 
-            dx_filtered = []
+            if dx_code.lower() in section_lower:
 
-            for line in filtered_lines:
+                score += 5
 
-                if dx_code.lower() in line.lower():
+        # ---- AFO / ORTHOSIS RELEVANCE BOOST ----
 
-                    dx_filtered.append(line)
+        if hcpcs:
 
-            if dx_filtered:
+            if hcpcs.upper().startswith("L19"):
 
-                filtered_lines = dx_filtered
+                if (
+                    "ankle-foot orthosis" in section_lower
+                    or "afo" in section_lower
+                    or "ankle" in section_lower
+                ):
 
-        matching_lines = filtered_lines
+                    score += 2
 
-        if matching_lines:
+        # ---- KNEE ORTHOSIS BOOST ----
 
-            unique_matches = list(dict.fromkeys(matching_lines))
+        if hcpcs:
 
-            for match in unique_matches[:10]:
+            if hcpcs.upper().startswith("L18"):
 
-                st.sidebar.write(f"• {match}")
+                if (
+                    "knee orthosis" in section_lower
+                    or "knee" in section_lower
+                ):
 
-        else:
+                    score += 2
 
-            st.sidebar.write("No matching policy guidance found.")
+        # ---- ONLY KEEP RELEVANT SECTIONS ----
+
+        if score > 0:
+
+            matching_sections.append(
+                (score, section)
+            )
+
+    # ---- SORT BY RELEVANCE ----
+
+    matching_sections.sort(
+        key=lambda x: x[0],
+        reverse=True
+    )
+
+    # ---- DISPLAY RESULTS ----
+
+    if matching_sections:
+
+        displayed_sections = []
+
+        for score, section in matching_sections:
+
+            if section not in displayed_sections:
+
+                st.sidebar.markdown("---")
+
+                st.sidebar.write(
+                    section[:1500]
+                )
+
+                displayed_sections.append(
+                    section
+                )
+
+            if len(displayed_sections) >= 5:
+
+                break
+
+    else:
+
+        st.sidebar.write(
+            "No matching policy guidance found."
+        )
