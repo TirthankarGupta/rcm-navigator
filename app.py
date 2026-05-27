@@ -105,6 +105,7 @@ pdf_files = [file for file in stored_files if file.endswith(".pdf")]
 if pdf_files:
 
     combined_knowledge = ""
+
     policy_buckets = {
         "required_documentation": [],
         "medical_records": [],
@@ -131,6 +132,42 @@ if pdf_files:
                 if text:
 
                     extracted_text += text + "\n"
+
+                    lines = text.split("\n")
+
+                    current_bucket = None
+
+                    for line in lines:
+
+                        line_upper = line.upper()
+
+                        if "REQUIRED DOCUMENTATION" in line_upper:
+                            current_bucket = "required_documentation"
+
+                        elif "MEDICAL RECORD" in line_upper:
+                            current_bucket = "medical_records"
+
+                        elif "DELIVERY DOCUMENTATION" in line_upper:
+                            current_bucket = "delivery_documentation"
+
+                        elif "PRIOR AUTHORIZATION" in line_upper:
+                            current_bucket = "prior_authorization"
+
+                        elif "COVERAGE CRITERIA" in line_upper:
+                            current_bucket = "coverage_criteria"
+
+                        elif "CUSTOM FABRICATED" in line_upper:
+                            current_bucket = "custom_fabricated"
+
+                        elif "PREFABRICATED" in line_upper:
+                            current_bucket = "prefabricated"
+
+                        elif "REMINDER" in line_upper:
+                            current_bucket = "reminders"
+
+                        if current_bucket:
+
+                            policy_buckets[current_bucket].append(line)
 
         combined_knowledge += extracted_text + "\n"
 
