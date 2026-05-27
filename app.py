@@ -171,16 +171,48 @@ if pdf_files:
 
         combined_knowledge += extracted_text + "\n"
 
-    st.text_area(
+    st.markdown("### 📄 Structured Policy Preview")
+    if policy_buckets["required_documentation"]:
+        st.text_area(
+            "Required Documentation",
+            "\n".join(
+                policy_buckets["required_documentation"][:20]
+                ),
+            
+                height=200
+        )
+    
+    if policy_buckets["delivery_documentation"]:
+        st.text_area(
+            "Delivery Documentation",
+            "\n".join(
+                policy_buckets["delivery_documentation"][:20]
+            ),
+            
+            height=200
+        )
+    
+    if policy_buckets["medical_records"]:
+        st.text_area(
+            "Medical Records",
+            "\n".join(
+                policy_buckets["medical_records"][:20]
+            ),
+            
+            height=200
+        )
+    
+    if policy_buckets["coverage_criteria"]:
+        st.text_area(
+            "Coverage Criteria",
+            "\n".join(
+                policy_buckets["coverage_criteria"][:20]
+            ),
 
-        "Preview",
+            height=200
+        )
 
-        combined_knowledge[:3000],
-
-        height=300
-
-    )
-
+       
 # ---- LOGOUT BUTTON ----
 
 st.sidebar.markdown("---")
