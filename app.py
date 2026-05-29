@@ -176,6 +176,7 @@ if pdf_files:
                 chunk_text = "\n".join(bucket_lines)
                 policy_chunks.append(
                     {
+                        "source_file": pdf_file,
                         "bucket": bucket_name,
                         "text": chunk_text
                     }
