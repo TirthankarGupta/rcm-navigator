@@ -187,7 +187,7 @@ if pdf_files:
     st.write(f"Policy Chunks Created: {len(policy_chunks)}")
     for i, chunk in enumerate(policy_chunks[:10], start=1):
         st.write(
-            f"Chunk {i}: {chunk['bucket']}"
+            f"Chunk {i}: {chunk['source_file']} | {chunk['bucket']}"
         )
     
     st.markdown("### 📄 Structured Policy Preview")
