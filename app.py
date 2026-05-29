@@ -183,6 +183,12 @@ if pdf_files:
                 
         combined_knowledge += extracted_text + "\n"
 
+    st.write(f"Policy Chunks Created: {len(policy_chunks)}")
+    for i, chunk in enumerate(policy_chunks[:10], start=1):
+        st.write(
+            f"Chunk {i}: {chunk['bucket']}"
+        )
+    
     st.markdown("### 📄 Structured Policy Preview")
 
     if policy_buckets["required_documentation"]:
