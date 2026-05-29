@@ -106,19 +106,18 @@ if pdf_files:
 
     combined_knowledge = ""
 
-   policy_buckets = {
-    "required_documentation": [],
-    "medical_records": [],
-    "delivery_documentation": [],
-    "prior_authorization": [],
-    "coverage_criteria": [],
-    "custom_fabricated": [],
-    "prefabricated": [],
-    "reminders": []
-   }
+    policy_buckets = {
+        "required_documentation": [],
+        "medical_records": [],
+        "delivery_documentation": [],
+        "prior_authorization": [],
+        "coverage_criteria": [],
+        "custom_fabricated": [],
+        "prefabricated": [],
+        "reminders": []
+    }
 
-policy_chunks = []
-
+    policy_chunks = []
 
     for pdf_file in pdf_files:
 
@@ -175,43 +174,36 @@ policy_chunks = []
         combined_knowledge += extracted_text + "\n"
 
     st.markdown("### 📄 Structured Policy Preview")
+
     if policy_buckets["required_documentation"]:
+
         st.text_area(
             "Required Documentation",
-            "\n".join(
-                policy_buckets["required_documentation"][:20]
-                ),
-            
-                height=200
+            "\n".join(policy_buckets["required_documentation"][:20]),
+            height=200
         )
-    
+
     if policy_buckets["delivery_documentation"]:
+
         st.text_area(
             "Delivery Documentation",
-            "\n".join(
-                policy_buckets["delivery_documentation"][:20]
-            ),
-            
+            "\n".join(policy_buckets["delivery_documentation"][:20]),
             height=200
         )
-    
+
     if policy_buckets["medical_records"]:
+
         st.text_area(
             "Medical Records",
-            "\n".join(
-                policy_buckets["medical_records"][:20]
-            ),
-            
+            "\n".join(policy_buckets["medical_records"][:20]),
             height=200
         )
-    
+
     if policy_buckets["coverage_criteria"]:
+
         st.text_area(
             "Coverage Criteria",
-            "\n".join(
-                policy_buckets["coverage_criteria"][:20]
-            ),
-
+            "\n".join(policy_buckets["coverage_criteria"][:20]),
             height=200
         )
 
