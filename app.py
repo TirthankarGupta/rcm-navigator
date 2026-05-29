@@ -920,7 +920,9 @@ if insurance or hcpcs or dx_code:
         "## 📄 Retrieved Policy Intelligence"
     )
 
-    sections = combined_knowledge.split("\n\n")
+    sections = []
+    for chunk in policy_chunks:
+        sections.append(chunk["text"])
 
     matching_sections = []
 
