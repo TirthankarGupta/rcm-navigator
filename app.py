@@ -171,6 +171,16 @@ if pdf_files:
 
                             policy_buckets[current_bucket].append(line)
 
+        for bucket_name, bucket_lines in policy_buckets.items():
+            if bucket_lines:
+                chunk_text = "\n".join(bucket_lines)
+                policy_chunks.append(
+                    {
+                        "bucket": bucket_name,
+                        "text": chunk_text
+                    }
+                )
+                
         combined_knowledge += extracted_text + "\n"
 
     st.markdown("### 📄 Structured Policy Preview")
