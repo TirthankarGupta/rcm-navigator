@@ -106,16 +106,19 @@ if pdf_files:
 
     combined_knowledge = ""
 
-    policy_buckets = {
-        "required_documentation": [],
-        "medical_records": [],
-        "delivery_documentation": [],
-        "prior_authorization": [],
-        "coverage_criteria": [],
-        "custom_fabricated": [],
-        "prefabricated": [],
-        "reminders": []
-    }
+   policy_buckets = {
+    "required_documentation": [],
+    "medical_records": [],
+    "delivery_documentation": [],
+    "prior_authorization": [],
+    "coverage_criteria": [],
+    "custom_fabricated": [],
+    "prefabricated": [],
+    "reminders": []
+   }
+
+policy_chunks = []
+
 
     for pdf_file in pdf_files:
 
