@@ -983,6 +983,25 @@ if insurance or hcpcs or dx_code:
 
                     score += 2
 
+        # ---- BUCKET RELEVANCE BOOST ----
+
+        if "coverage criteria" in section_lower:
+
+            score += 4
+
+        if "medical record" in section_lower:
+
+            score += 3
+
+        if "required documentation" in section_lower:
+
+            score += 2
+
+        if "delivery documentation" in section_lower:
+
+            score += 1
+        
+        
         # ---- ONLY KEEP RELEVANT SECTIONS ----
 
         if score > 0:
