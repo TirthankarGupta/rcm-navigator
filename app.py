@@ -173,14 +173,26 @@ if pdf_files:
 
         for bucket_name, bucket_lines in policy_buckets.items():
             if bucket_lines:
-                chunk_text = "\n".join(bucket_lines)
-                policy_chunks.append(
-                    {
-                        "source_file": pdf_file,
-                        "bucket": bucket_name,
-                        "text": chunk_text
-                    }
-                )
+                fragment_size = 15
+                for i in range(
+                    0,
+                    len(bucket_lines),
+                    fragment_size
+                ):
+                    fragment_lines = bucket_lines[
+                        i:i + fragment_size
+                    ]
+                    
+                    chunk_text = "\n".join(
+                        fragment_lines
+                    )
+                    policy_chunks.append(
+                        {
+                            "source_file": pdf_file,
+                            "bucket": bucket_name,
+                            "text": chunk_text
+                        }
+                    )
                 
         combined_knowledge += extracted_text + "\n"
 
