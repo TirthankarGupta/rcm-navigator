@@ -992,21 +992,21 @@ if insurance or hcpcs or dx_code:
 
         # ---- BUCKET RELEVANCE BOOST ----
 
-        if "coverage criteria" in section_lower:
-
-            score += 4
-
-        if "medical record" in section_lower:
-
+        if bucket_name == "coverage_criteria":
+        
+            score += 10
+        
+        elif bucket_name == "medical_records":
+        
+            score += 8
+        
+        elif bucket_name == "required_documentation":
+        
+            score += 6
+        
+        elif bucket_name == "delivery_documentation":
+        
             score += 3
-
-        if "required documentation" in section_lower:
-
-            score += 2
-
-        if "delivery documentation" in section_lower:
-
-            score += 1
         
         
         # ---- ONLY KEEP RELEVANT SECTIONS ----
