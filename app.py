@@ -957,19 +957,19 @@ if insurance or hcpcs or dx_code:
     
         score = 0
 
-    # ---- DEVICE FILTER ----
-
-    if hcpcs:
-
-        target_device = HCPCS_CATEGORIES.get(
-            hcpcs.upper()
-        )
-
-        if target_device:
-
-            if device_type != target_device:
-
-                continue
+        # ---- DEVICE FILTER ----
+    
+        if hcpcs:
+    
+            target_device = HCPCS_CATEGORIES.get(
+                hcpcs.upper()
+            )
+    
+            if target_device:
+    
+                if device_type != target_device:
+    
+                    continue
 
         # ---- INSURANCE MATCH ----
 
