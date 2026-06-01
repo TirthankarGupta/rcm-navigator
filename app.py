@@ -987,6 +987,31 @@ if insurance or hcpcs or dx_code:
 
                 score += 3
 
+        
+        # ---- L1902 RELEVANCE BOOST ----
+
+        if hcpcs.upper() == "L1902":
+        
+            if "ankle orthosis" in section_lower:
+        
+                score += 15
+        
+            if "ankle gauntlet" in section_lower:
+        
+                score += 15
+        
+            if "ankle-foot orthosis" in section_lower:
+        
+                score += 12
+        
+            if "afo" in section_lower:
+        
+                score += 10
+        
+            if "prefabricated" in section_lower:
+        
+                score += 5
+        
         # ---- DX MATCH ----
 
         if dx_code:
