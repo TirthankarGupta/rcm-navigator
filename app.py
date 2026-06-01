@@ -944,11 +944,32 @@ if insurance or hcpcs or dx_code:
     )
 
     matching_sections = []
+
     for chunk in policy_chunks:
+    
         section = chunk["text"]
+    
         bucket_name = chunk["bucket"]
+    
+        device_type = chunk["device_type"]
+    
         section_lower = section.lower()
+    
         score = 0
+
+    # ---- DEVICE FILTER ----
+
+    if hcpcs:
+
+        target_device = HCPCS_CATEGORIES.get(
+            hcpcs.upper()
+        )
+
+        if target_device:
+
+            if device_type != target_device:
+
+                continue
 
         # ---- INSURANCE MATCH ----
 
