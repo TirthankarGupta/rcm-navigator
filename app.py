@@ -1068,7 +1068,7 @@ if insurance or hcpcs or dx_code:
         
         # ---- ONLY KEEP RELEVANT SECTIONS ----
 
-        if score > 0:
+        if score > 15:
 
             matching_sections.append(
                 (score, section)
