@@ -173,7 +173,7 @@ if pdf_files:
 
         for bucket_name, bucket_lines in policy_buckets.items():
             if bucket_lines:
-                fragment_size = 15
+                fragment_size = 5
                 for i in range(
                     0,
                     len(bucket_lines),
