@@ -186,9 +186,20 @@ if pdf_files:
                     chunk_text = "\n".join(
                         fragment_lines
                     )
+                    
+                    device_type = "UNKNOWN"
+
+                    if "afo" in pdf_file.lower():
+                        device_type = "ANKLE_ORTHOSIS"
+                    elif "knee" in pdf_file.lower():
+                        device_type = "KNEE_ORTHOSIS"
+                    elif "shoulder" in pdf_file.lower():
+                        device_type = "SHOULDER_ORTHOSIS"
+                    
                     policy_chunks.append(
                         {
                             "source_file": pdf_file,
+                            "device_type": device_type,
                             "bucket": bucket_name,
                             "text": chunk_text
                         }
