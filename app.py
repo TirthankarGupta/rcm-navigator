@@ -106,7 +106,11 @@ if pdf_files:
 
     combined_knowledge = ""
 
-    policy_buckets = {
+    
+    policy_chunks = []
+
+    for pdf_file in pdf_files:
+        policy_buckets = {
         "required_documentation": [],
         "medical_records": [],
         "delivery_documentation": [],
@@ -115,11 +119,7 @@ if pdf_files:
         "custom_fabricated": [],
         "prefabricated": [],
         "reminders": []
-    }
-
-    policy_chunks = []
-
-    for pdf_file in pdf_files:
+        }
 
         pdf_path = os.path.join("uploaded_docs", pdf_file)
 
